@@ -23,7 +23,7 @@ M.ui = {
 
   telescope = { style = "borderless" }, -- borderless / bordered
 
-  ------------------------------- nvchad_ui modules -----------------------------
+  ------------------------------- ui modules -----------------------------
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
@@ -90,7 +90,6 @@ M.base46 = {
     "git",
     "lsp",
     "mason",
-    "nvchad_updater",
     "nvcheatsheet",
     "nvdash",
     "nvimtree",

@@ -20,10 +20,8 @@ M.list_themes = function()
 end
 
 M.replace_word = function(old, new)
-  -- TODO: Добавить PATH в глобальный конфиг
   local path = require("nvconfig").path
   local configPath = vim.fn.stdpath "config" .. "/lua/" .. path
-  -- local chadrc = vim.fn.stdpath("config") .. "/lua/custom/chadrc.lua"
   local file = io.open(configPath, "r")
   local added_pattern = string.gsub(old, "-", "%%-") -- add % before - if exists
   local new_content = file:read("*all"):gsub(added_pattern, new)

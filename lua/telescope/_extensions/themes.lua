@@ -12,7 +12,7 @@ local old_theme = require("nvconfig").ui.theme
 local function reload_theme(name)
   require("nvconfig").ui.theme = name
   require("base46").load_all_highlights()
-  vim.api.nvim_exec_autocmds("User", { pattern = "NvChadThemeReload" })
+  vim.api.nvim_exec_autocmds("User", { pattern = "Base46ThemeReload" })
 end
 
 local function switcher()
