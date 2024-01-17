@@ -22,11 +22,27 @@ end
 M.replace_word = function(old, new)
   local path = require("nvconfig").path
   local configPath = vim.fn.stdpath "config" .. "/lua/" .. path
-  local file = io.open(configPath, "r")
   local added_pattern = string.gsub(old, "-", "%%-") -- add % before - if exists
+
+  local ERROR_MSG_FILE = "\nConfiguration file was not found or read/write permissions are missing."
+    .. "\nPlease check your configuration parameter: { path: '"
+    .. configPath
+    .. "' }"
+
+  local file = io.open(configPath, "r")
+  if not file then
+    error(ERROR_MSG_FILE)
+    return
+  end
+
   local new_content = file:read("*all"):gsub(added_pattern, new)
 
   file = io.open(configPath, "w")
+  if not file then
+    error(ERROR_MSG_FILE)
+    return
+  end
+
   file:write(new_content)
   file:close()
 end
